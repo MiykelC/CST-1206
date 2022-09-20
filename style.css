@@ -1,0 +1,39 @@
+.button_ {
+    background-color: rgb(97, 97, 97);
+    color: rgb(0, 255, 0);
+    font-size: large;
+    
+}
+
+#addition {
+    border-bottom-style: solid;
+    background-color: red
+}
+
+#subtraction {
+    border-bottom-style: solid;
+    background-color: pink
+}
+
+#multiplication {
+    border-bottom-style: solid;
+    background-color: orange
+}
+
+#division {
+    border-bottom-style: solid;
+    background-color: yellow
+}
+h1, h2{
+    text-align: center;
+    color: rgb(153, 255, 0);
+    background-color: black;
+}
+#body1{
+    background-color: black;
+    color: greenyellow;
+    text-align: center;
+}
+body {
+    background-color: black;
+}
