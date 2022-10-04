@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DATA</title>
+	<link rel="stylesheet" href="style.css">
+    <script src="code.js"></script>
+</head>
+<body>
+<h1>MICHAEL CHUA FORMS AND TABLES</h1>
+<img src = "" style = "float: right"/>
+<form action="" onsubmit="submitForm()">
+	<h1>INFORMATION FORM</h1>
+	<div class="container">
+		<label for="names">Name</label> <br>
+		<input type="text" id="names">
+		<label for="emails">Email</label> <br>
+		<input type="text" id="emails">
+		<label for="studID">Student ID</label><br>
+		<input type="text" id="studID">
+	<div id="button-row">
+		<div class="button">
+			<button type="submit" id="send">Save to local Storage</button>
+			<input type="button" name="button" id="btn" value="ADD TABLE" onclick="AddRow()">
+			
+	</div>
+</form>
+		<table id="show">
+				<tr>
+					<th>Name</th>
+					<th>Email</th>
+					<th>ID NUMBER</th>
+				</tr>
+			
+		</table>
+</body>
+</html>

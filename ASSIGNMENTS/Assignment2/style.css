@@ -1,0 +1,42 @@
+.container{
+  border-radius: 5px;
+  background-color: rgb(75, 133, 63);
+  padding: 20px;
+  width: 50%;
+ text-align: center;
+
+}
+input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid rgb(0, 255, 106);
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  
+
+}
+#btn, #send{
+    cursor: pointer;
+    background-color: seagreen;
+    border-color: honeydew;
+}
+table, td, th {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  height: 20px;
+}
+body {
+background-color: rgb(75, 133, 63);
+}
+h1{
+  text-align: center;
+}
