@@ -32,3 +32,78 @@ function printValue( item, index){
     console.log(item, "Array[I] Value");
     console.log(index, "INDEX VALUE");
 }
+
+
+// ************************************************************
+
+//map function 
+// example 1
+
+
+let numArray = [1,2,3,4,5];
+
+let newArray = numArray.map(function(item,index){
+    return item *2
+})
+
+console.log(numArray, "Original Array")
+console.log(newArray, "New Array")
+
+// NOTE- WHEN YOU ARE USING THE MAP FUNCTION, the lenght of the array mains the same
+
+//example 2
+
+// CHANGE GRADE VALUE TO PASS OR FAIL
+
+
+let studentmarks = [
+    {
+        name: "Michael",
+        rollNumber: 100,
+        grade: 90
+    },
+    {
+        name: "Daniel",
+        rollNumber: 101,
+        grade: 42
+    },
+    {
+        name: "Michael",
+        rollNumber: 103,
+        grade: 70
+    }
+]
+
+let modifiedArray = studentmarks.map((student)=>{
+    if (student.grade > 50){
+        student.grade ="PASS"
+    } else {
+        student.grade = "FAIL"
+    }
+    return student;
+})
+
+console.log(modifiedArray);
+
+// ************************************************************
+
+//filter function 
+
+let num2array =[1,2,3,4,5,6];
+let new2array = num2array.filter((num)=> {
+    if (num % 2==0){
+        return true;
+    }
+    
+})
+
+console.log(num2array, "ORIGINAL ARRAY");
+console.log(new2array, "MODIFIED ARRAY");
+
+let passedStudent= modifiedArray.filter(function(student){
+    if (student.grade === "PASS"){
+        return true;
+    }
+})
+
+console.log(passedStudent)
