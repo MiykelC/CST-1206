@@ -87,7 +87,7 @@ console.log(modifiedArray);
 
 // ************************************************************
 
-//filter function 
+//FILTER function 
 
 let num2array =[1,2,3,4,5,6];
 let new2array = num2array.filter((num)=> {
@@ -107,3 +107,44 @@ let passedStudent= modifiedArray.filter(function(student){
 })
 
 console.log(passedStudent)
+
+// ************************************************************
+
+//REDUCE function 
+
+let sum = 0;
+let array1 = [1,20,3,4,5]
+for (let i=0; i < Array.length ; i++){
+    sum = sum + array1[i]
+}
+
+console.log(sum);
+
+let sumofArray = array1.reduce((accumulator, currentvalue)=>{
+return accumulator + currentvalue
+}, 0)
+
+console.log(sumofArray)
+// accumulator ---> SUM
+// currentValue ---> array[i]
+// initialValue ---> 0
+
+
+// Maximum inside the array
+// You can use for loop
+let max = -Infinity;
+for (let i = 0 ; i< array1.length; i++) {
+    if (array1[i] > max) {
+        max = array1[i];
+    }
+}
+
+console.log(max);
+
+
+// You can reduce just like the above example
+let maxValue = array1.reduce((accumulator, currentValue) => {
+   return accumulator >  currentValue ? accumulator : currentValue
+}, -Infinity)
+
+console.log(maxValue);
