@@ -41,20 +41,20 @@ function studentWithHighestMarks(array = []) {
 }
 console.log(studentWithHighestMarks(students));
 
-
+// 2 seperated arrays
 const arr1 = [2, 1, 0, 3, 7, 6, 4, 5, 10, 9];
 const arr2 = [4, 5, 2, 1, 0];
 function missingNumber(array, n) {
 
 const missing = (array) => {
-  let sumofArray = array.reduce((accumulator, currentValue) => { return accumulator + currentValue; },0)
-  let { length: num } = array
-  let newSumofArray = (num * (num + 1)) / 2
+  let sumofArray = array.reduce((accumulator, currentValue) => { return accumulator + currentValue; },0) 
+  let { length: numbers } = array
+  let newSumofArray = (numbers * (numbers + 1)) / 2 
   return (newSumofArray - sumofArray)
 }
-console.log(missing(array))
-
-}
+console.log(missing(array)) 
+ 
+} // calling the function
 missingNumber(arr2);
 missingNumber(arr1);
 
