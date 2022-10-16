@@ -8,11 +8,11 @@ const student = [];
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send("Welcome to Student APIs!");
+    res.send("Welcome to Employee APIs!");
 })
 
 // We are trying to get students data from the server
-app.get('/students', (req, res) => {
+app.get('/employee', (req, res) => {
     // For get requests we give 200 success response
     // const data = res.status(200);
     // return data.json(student);
@@ -21,7 +21,7 @@ app.get('/students', (req, res) => {
 })
 
 // We are trying to post students data to the server
-app.post('/students', (req, res) => {
+app.post('/employee', (req, res) => {
     const studentData = req.body;
     student.push(studentData);
 
