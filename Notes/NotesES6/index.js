@@ -1,58 +1,104 @@
-//console.log(this);
+// This Keyword
 
-var name = "Michael";
+// This keyword refers to the current object that's ----> name
 
-//let obj = {
-  //  name: "prabh",
-  //  getName: function() {
-   //     console.log(this.name);
-  //  }
-//}
+var name = "Daniel";
 
-//obj.getName();
-
-
-// p2 
-var user ="michael";
-let obj2 = {
-    user: "prabh",
-    getUserName: () => {
-        console.log(this.user);
+let obj = {
+    name: "Prabh",
+    getName: function () {
+        console.log(this.name);
     }
 }
 
-obj2.getUserName();
+obj.getName();
 
 
+// Main difference is based on this keyword
+var game = "Call Of Duty"
+let obj2 = {
+    game: "Apex",
+    getGame: () => { // By using the arrow function, the reference to this changes to global object
+        console.log(this.game);
+    }
+}
 
-var city = "montreal";
+obj2.getGame(); // Call of Duty 
+
+
+var city = "Montreal";
+
 let student = {
-    name: " michael",
-    college: "vcc",
-    city: "toronto",
+    name: "Daniel",
+    college: "VCC",
+    city: "Toronto",
     address: {
-        city: " vancouver",
+        city: "Vancouver",
         province: "BC",
-        getCity:() => {
+        getCity: function () {
             console.log(this.city);
         }
     }
 }
 
-student.address.getCity();
+student.address.getCity(); // Vancouver (BECAUSE WE ARE USING FUNCTION KEYWORD)
 
-// hoisting in var keyword
-
-console.log(collegename);
-
-var collegename ="vcc";
-
-// hoisting in FUNCTION KEYWORD
-
-getMyname(); 
-
-function getMyName(){
-    console.log("Hey i am michael");
+let student2 = {
+    name: "Daniel",
+    college: "VCC",
+    city: "Toronto",
+    address: {
+        city: "Vancouver",
+        province: "BC",
+        getCity: () => {
+            console.log(this.city);
+        }
+    }
 }
 
+student2.address.getCity(); // Montreal (BECAUSE WE ARE USING Arrow Functions)
 
+
+
+
+// HOISTING ****************************************
+
+// HOISTING IN VAR KEYWORDS
+
+console.log(collegeName); // Undefined
+
+var collegeName = "VCC";
+
+// -------- The above representation will be written by parser as below and that's
+// why it is undefined
+
+var collegeName;
+
+console.log(collegeName); // Undefined
+
+collegeName = "VCC";
+
+
+// HOISTING IN FUNCTION KEYWORD
+
+
+getMyName(); // Hey I am Prabh
+
+function getMyName() {
+    console.log("Hey I am Prabh");
+}
+
+// ---------------------- The above representation will be written by parser as below and that's
+
+function getMyName() {
+    console.log("Hey I am Prabh");
+}
+
+getMyName(); // Hey I am Prabh
+
+
+
+// HOISTING IN LET AND CONST KEYWORD
+
+console.log(country); // Reference Error
+let country = "Canada"

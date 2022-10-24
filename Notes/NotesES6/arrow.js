@@ -12,7 +12,7 @@ const sum2 = (a, b) => {
 
 // The above example can be written in arrow function in single line
 
-const sum3 = (a, b) =>  a + b;
+const sum3 = (a, b) => a + b;
 
 // *******************************************************************
 
@@ -20,7 +20,7 @@ const sum3 = (a, b) =>  a + b;
 
 // Function Expresion
 
-const sum4 = function(a, b) {
+const sum4 = function (a, b) {
     return a + b;
 }
 
@@ -38,4 +38,3 @@ console.log("Hi my name is " + myName + " and I study in " + myCollege);
 //  We can write the above as using string literals
 
 console.log(`Hi my name is ${myName} and I study in ${myCollege}`);
-
