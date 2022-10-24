@@ -38,3 +38,4 @@ console.log("Hi my name is " + myName + " and I study in " + myCollege);
 //  We can write the above as using string literals
 
 console.log(`Hi my name is ${myName} and I study in ${myCollege}`);
+
