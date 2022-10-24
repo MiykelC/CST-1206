@@ -1,8 +1,7 @@
 const express = require('express');
-
 const app = express();
 const PORT = 4000;
-const student = [];
+const employee = [];
 
 // Telling express that the data i am getting is of type JSON
 app.use(express.json());
@@ -17,16 +16,16 @@ app.get('/employee', (req, res) => {
     // const data = res.status(200);
     // return data.json(student);
 
-    return res.status(200).json(student);
+    return res.status(200).json(employee);
 })
 
 // We are trying to post students data to the server
 app.post('/employee', (req, res) => {
-    const studentData = req.body;
-    student.push(studentData);
+    const employeeData = req.body;
+    employee.push(employeeData);
 
     // 201 is used when you are trying to create a resource and send sucess response
-    return res.status(201).json(student);
+    return res.status(201).json(employee);
 })
 
 app.listen(PORT, () => {
