@@ -10,16 +10,16 @@ app.get('/', (req, res) => {
     res.send("Welcome to Employee APIs!");
 })
 
-// We are trying to get students data from the server
+// We are trying to get employees data from the server
 app.get('/employee', (req, res) => {
     // For get requests we give 200 success response
     // const data = res.status(200);
-    // return data.json(student);
+    // return data.json(employees);
 
     return res.status(200).json(employee);
 })
 
-// We are trying to post students data to the server
+// We are trying to post employees data to the server
 app.post('/employee', (req, res) => {
     const employeeData = req.body;
     employee.push(employeeData);
