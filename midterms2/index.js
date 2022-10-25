@@ -24,13 +24,15 @@ const  employeeList = [
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send("Welcome to Employee APIs!");
+    res.send("Welcome to Employee APIs MICHAEL CHUA'S MIDTERMS!");
 })
 
-
+// show all employees
 app.get('/employee', (req, res) => {
     return res.status(200).json(employeeList);
 })
+
+// get employee with specific id 
 app.get('/employee/:id', (req, res) => {
     const id = req.params.id;
     const employee = employeeList.find((employee) => {
@@ -40,6 +42,9 @@ app.get('/employee/:id', (req, res) => {
     })
     return res.status(200).json(employee);
 })
+
+
+// get employee with specific department
 app.get('/employee/in/:department', (req, res) => {
     const department = req.params.department;
     const employee = employeeList.find((employee) => {
@@ -50,12 +55,14 @@ app.get('/employee/in/:department', (req, res) => {
     return res.status(200).json(employee);
 })
 
-
+// add new to your data 
 app.post('/employee/add', (req, res) => {
     const employeeData = req.body;
     employeeList.push(employeeData);
     return res.status(201).json(employeeList);
 })
+
+// delete an employee base on their id number
 
 app.delete('/employee/delete/:id', (req, res) => {
     const id = req.params.id;
@@ -68,6 +75,8 @@ app.delete('/employee/delete/:id', (req, res) => {
     return res.status(200).json({ message: `Employee with id ${id} deleted successfully` });
 })
 
+// update an employee base on their id number
+
 app.put('/employee/update/:id', (req, res) => {
     const id = req.params.id;
     const employee = employeeList.find((employee) => employee.id === parseInt(id));
@@ -79,7 +88,7 @@ app.put('/employee/update/:id', (req, res) => {
     return res.status(200).json({ message: `Employee with id ${id} updated successfully` });
 })
 
-
+// running the server
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
