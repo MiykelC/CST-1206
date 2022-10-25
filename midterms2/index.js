@@ -33,10 +33,10 @@ app.get('/employee', (req, res) => {
 })
 
 // get employee with specific id 
-app.get('/employee/:id', (req, res) => {
-    const id = req.params.id;
+app.get('/employee/:employeeID', (req, res) => {
+    const employeeID = req.params.employeeID;
     const employee = employeeList.find((employee) => {
-        if (employee.id == id){
+        if (employee.employeeID == employeeID){
             return true;
         }
     })
@@ -64,32 +64,38 @@ app.post('/employee/add', (req, res) => {
 
 // delete an employee base on their id number
 
-app.delete('/employee/delete/:id', (req, res) => {
-    const id = req.params.id;
-    const employee = employeeList.find((employee) => employee.id === parseInt(id));
+app.delete('/employee/delete/:employeeID', (req, res) => {
+    const employeeID = req.params.employeeID;
+    const employee = employeeList.find((employee) => employee.employeeID === parseInt(employeeID));
     if (!employee) {
-        return res.status(400).json({ message: `Employee with id ${id} does not exist` });
+        return res.status(400).json({ message: `Employee with id ${employeeID} does not exist` });
     }
     const index = employeeList.indexOf(employee);
     employeeList.splice(index, 1);
-    return res.status(200).json({ message: `Employee with id ${id} deleted successfully` });
+    return res.status(200).json({ message: `Employee with id ${employeeID} deleted successfully` });
 })
 
 // update an employee base on their id number
 
-app.put('/employee/update/:id', (req, res) => {
-    const id = req.params.id;
-    const employee = employeeList.find((employee) => employee.id === parseInt(id));
+app.put('/employee/update/:employeeID', (req, res) => {
+    const employeeID = req.params.employeeID;
+    const employee = employeeList.find((employee) => employee.employeeID === parseInt(employeeID));
     if (!employee) {
-        return res.status(400).json({ message: `Employee with id ${id} does not exist` });
+        return res.status(400).json({ message: `Employee with id ${employeeID} does not exist` });
     }
     const index = employeeList.indexOf(employee);
     employeeList[index] = req.body;
-    return res.status(200).json({ message: `Employee with id ${id} updated successfully` });
+    return res.status(200).json({ message: `Employee with id ${employeeID} updated successfully` });
+})
+// get the employee with the highest salary
+app.get('/employee/salary/highest', (req, res) => {
+    const highestSalary = employeeList.reduce((prev, current) => (prev.Salary > current.Salary) ? prev : current);
+    return res.status(200).json(highestSalary);
 })
 
 // running the server
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
+
 })
