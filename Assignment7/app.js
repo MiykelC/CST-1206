@@ -1,7 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const { check, validationResult} = require('express-validator')
-const { name } = require('ejs')
 const app = express()
 const PORT = 5000
 
@@ -18,7 +17,13 @@ app.get('/register', (req, res)=> {
 })
 
 app.post('/register', (req, res) => {
-  res.render('success',{name: name})
+  res.render('success')
+})
+
+
+
+app.get("/", (req, res) => {
+  res.render('success', { name: "michael", email: "michael@gmail.com", contactnumber: "" })
 })
 
 app.listen(PORT, () => {
