@@ -22,7 +22,7 @@ app.post('/register', (req, res) => {
 
 
 
-app.get("/", (req, res) => {
+app.get("/success", (req, res) => {
   res.render('success', { name: "michael", email: "michael@gmail.com", contactnumber: "" })
 })
 
