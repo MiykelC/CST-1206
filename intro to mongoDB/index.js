@@ -43,7 +43,8 @@ app.post("/users", (req, res) => {
                 data
             })
     })
-})  
+})   
+
 
 app.listen(PORT,()=>{
     console.log(`Server is running on port ${PORT}`);
