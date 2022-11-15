@@ -11,7 +11,7 @@ const User = require("./models/user");
 app.use(express.json());
 
 
-mongoose.connect(process.env.MONGO_URI, (error) => {
+mongoose.connect(process.env.MONGO_URL, (error) => {
     if (error) {
         console.error(`There was an error : ${error}` );
     } else {
