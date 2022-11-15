@@ -73,8 +73,118 @@ app.post("/users", async (req, res) => {
         })
     }
 
+})
+
+app.get("/users/:id", async (req, res) => {
+    const id = req.params.id;
+
+    try {
+        const foundUser = await User.findById(id); 
+
+        // It goes to the database waits for the database to give the response
+
+
+        // Then Javascript resumes to next line
+
+        if (foundUser) {
+            // 200 means success response
+            return res.status(200).json({
+                message: "Found user for given ID",
+                data: foundUser
+            })
+        } else {
+            // status code 404 means resource not found
+            return res.status(404).json({
+                message: "User not found for the given ID",
+                data: null
+            })
+        }
+        
+    } catch (error) {
+        // Status Code 500 means something is wrong in the database
+        return res.status(500).json({
+            message: "Something went Wrong!",
+            error
+        })
+    }
+     
+})
+
+
+// FIND ONE based on given parameters *****************************
+
+// // :email means dynamic email here
+app.get("/users/field/:email", async (req, res) => {
+    const email = req.params.email;
+
+    try {
+        const foundUser = await User.findOne({ email });
+        console.log(foundUser, "found");
+
+        if (foundUser) {
+            // 200 means success response
+            return res.status(200).json({
+                message: "Found user for given Email",
+                data: foundUser
+            })
+        } else {
+            // status code 404 means resource not found
+            return res.status(404).json({
+                message: "User not found for the given Email",
+                data: null
+            })
+        }
+        
+    } catch (error) {
+        // Status Code 500 means something is wrong in the database
+        return res.status(500).json({
+            message: "Something went Wrong!",
+            error
+        })
+    }
+     
+})
+
+app.put("/users/:id", (req, res) => {
+    const id = req.params.id;
+    const updatedBody = req.body;
+
+        User.findOneAndUpdate({ _id: id}, updatedBody, { returnOrignal: false} ).then((data) => {
+            return res.status(200).json({
+                message: "User Succesfully Updated",
+                data
+            })
+        }).catch((error) => {
+            return res.status(500).json({
+                error,
+                message: "Something went wrong while updating"
+            })
+        })
+
+      
+     
+})
+
+app.delete("/users/:id", (req, res) => {
+    const id = req.params.id;
+
+        User.findByIdAndDelete(id).then((data) => {
+            return res.status(200).json({
+                message: "User Succesfully Deleted",
+                data
+            })
+        }).catch((error) => {
+            return res.status(500).json({
+                error,
+                message: "Something went wrong while deleting"
+            })
+        })
 
 })
+
+
+
+
 
 app.listen(PORT, () => {
     console.log(`Server Running on PORT ${PORT}`);
